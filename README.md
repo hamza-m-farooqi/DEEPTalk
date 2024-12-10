@@ -1,11 +1,11 @@
-# DEEPTalk: Dynamic Emotion Embedding for Probabilistic Speech-Driven 3D Face Animation
+# DEEPTalk: Dynamic Emotion Embedding for Probabilistic Speech-Driven 3D Face Animation [AAAI2025]
 
 <p align="center">
   <img src="./demo/teaser_final.png" alt="alt text" width="400">
 </p>
 
-[![arXiv](https://img.shields.io/badge/arXiv-<2209.14916>-<COLOR>.svg)](https://arxiv.org/abs/2408.06010)
-
+[![arXiv](https://img.shields.io/badge/arXiv-<2408.06010>-<COLOR>.svg)](https://arxiv.org/abs/2408.06010)
+[![ProjectPage](https://img.shields.io/badge/ProjectPage-<COLOR>.svg)](https://whwjdqls.github.io/deeptalk.github.io/)
 Official pytorch code release of "[DEEPTalk: Dynamic Emotion Embedding for Probabilistic Speech-Driven 3D Face Animation](https://arxiv.org/abs/2408.06010)"
 
 ```
