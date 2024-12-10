@@ -18,6 +18,9 @@ Official pytorch code release of "[DEEPTalk: Dynamic Emotion Embedding for Proba
       url={https://arxiv.org/abs/2408.06010}, 
 }
 ```
+## News
+🛩️ **10/Dec/24** - DEEPTalk is accepted to AAAI2025
+
 ## Settings
 REPOSITORY UNDER CONSTRUCTION
 ### Environment
