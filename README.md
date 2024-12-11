@@ -19,11 +19,12 @@ Official pytorch code release of "[DEEPTalk: Dynamic Emotion Embedding for Proba
       url={https://arxiv.org/abs/2408.06010}, 
 }
 ```
-## News
+## 📨 News
+🛩️ **11/Dec/24** - Released the inference&rendering code
+
 🛩️ **10/Dec/24** - DEEPTalk is accepted to AAAI2025
 
-## Settings
-REPOSITORY UNDER CONSTRUCTION
+## ⚙️ Settings
 ### Environment
 Make environment and install pytorch
 ```bash
@@ -40,8 +41,11 @@ Install osmesa and ffmpeg for headless rendering and audio, video processing.
 ```bash
 conda install menpo::osmesa
 conda install conda-forge::ffmpeg
-
 ```
+For trainig DEEPTalk on stage2, we used nvdiffrast.
+(to be updated)
+
+---
 ### Download Checkpoints
 Download DEE, FER, TH-VQVAE, DEEPTalk checkpoints from [here](https://drive.google.com/drive/u/0/folders/1vmgJCvAq96C83eU4JuUFooubL-y7Py44).
 - **DEE.pt**: Place in `./DEE/checkpoint`
@@ -59,17 +63,33 @@ Donload FLAME_sample.ply from [Ringnet project](https://github.com/soubhiksanyal
 
 Download Flame generic_model.pkl from [FLAME website](https://flame.is.tue.mpg.de/).
 - **generic_model.pkl**: Place in `./DEEPTalk/models/flame_models`
-  
-## Inference
+---
+## 🛹 Inference
+Run the following copmmand to make a video. Results will be saved in `./DEEPTalk/outputs`.
 ```
 cd DEEPTalk
-python demo.py \
---DEMOTE_ckpt_path ./checkpoint/DEEPTalk/DEEPTalk.pth \
---DEE_ckpt_path ../DEE/checkpoint/DEE.pth \
---audio_path ../demo/sample_audio.wav
-
+python demo.py --audio_path {raw audio file (wav) or sampled audio (.npy)}
 ```
-## Training
+
+## 📚 Dataset 
+### Download Data
+Download MEAD Dataset from [here](https://github.com/uniBruce/Mead).
+
+### Process Data
+Use the reconstruction method from [EMOCAV2](https://github.com/radekd91/inferno) to reconstruct FLAME parameters from MEAD.
+
+Leave an issue if your having troubles processing MEAD. We might be able to provide the exact parameters.
+
+
+## 🏋️ Training
+(To be updated)
+### 1. Train DEE 
+
+### 2. Train TH-VQVAE on MEAD FLAME parameters
+
+### 3. Train DEEPTalk stage1
+
+### 4. Train DEEPTalk stage2
 
 
 
