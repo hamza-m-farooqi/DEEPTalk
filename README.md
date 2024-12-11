@@ -73,24 +73,23 @@ python demo.py --audio_path {raw audio file (wav) or sampled audio (.npy)}
 
 ## 📚 Dataset 
 ### Download Data
-Download Affectnet Dataset from [here](http://mohammadmahoor.com/affectnet/).
 Download MEAD Dataset from [here](https://github.com/uniBruce/Mead).
 
 ### Process Data
-Use the reconstruction method from [EMOCAV2](https://github.com/radekd91/inferno) to reconstruct FLAME parameters from Affectnet or MEAD.
+Use the reconstruction method from [EMOCAV2](https://github.com/radekd91/inferno) to reconstruct FLAME parameters from MEAD.
 
+Leave an issue if your having troubles processing MEAD. We might be able to provide the exact parameters.
 
 
 ## 🏋️ Training
-### 1. Train Facial Emotion Recognition on FLAME parameters
+(To be updated)
+### 1. Train DEE 
 
-### 2. Train DEE 
+### 2. Train TH-VQVAE on MEAD FLAME parameters
 
-### 3. Train TH-VQVAE on MEAD FLAME parameters
+### 3. Train DEEPTalk stage1
 
-### 4. Train DEEPTalk stage1
-
-### 5. Train DEEPTalk stage2
+### 4. Train DEEPTalk stage2
 
 
 
