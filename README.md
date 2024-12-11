@@ -25,12 +25,41 @@ Official pytorch code release of "[DEEPTalk: Dynamic Emotion Embedding for Proba
 ## Settings
 REPOSITORY UNDER CONSTRUCTION
 ### Environment
+Make environment and install pytorch
+```bash
+conda create -n deeptalk python=3.9
+conda activate deeptalk
+pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113
+```
+Install pytorch3d and other requirements. Refer to this [page](https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md) for pytorch3d details.
+```bash
+pip install pytorch3d -f https://dl.fbaipublicfiles.com/pytorch3d/packaging/wheels/py39_cu113_pyt1121/download.html
+pip install -r requirements.txt
+```
+Install osmesa and ffmpeg for headless rendering and audio, video processing. 
+```bash
+conda install menpo::osmesa
+conda install conda-forge::ffmpeg
 
-
+```
 ### Download Checkpoints
 Download DEE, FER, TH-VQVAE, DEEPTalk checkpoints from [here](https://drive.google.com/drive/u/0/folders/1vmgJCvAq96C83eU4JuUFooubL-y7Py44).
-Place each files in ./DEE/checkpoint, ./FER/checkpoint, ./DEEPTalk/checkpoint/TH-VQVAE, ./DEEPTalk/checkpoint/DEEPTalk, respectively. 
+- **DEE.pt**: Place in `./DEE/checkpoint`
+- **FER.pth**: Place in `./FER/checkpoint`
+- **TH-VQVAE.pth**: Place in `./DEEPTalk/checkpoint/TH-VQVAE`
+- **DEEPTalk.pth**: Place in `./DEEPTalk/checkpoint/DEEPTalk`
 
+Download emotion2vec_bast.pt from the [emotion2vec repository](https://huggingface.co/emotion2vec/emotion2vec_base).
+- **emotion2vec_base.pt**: Place in `./DEE/models/emo2vec/checkpoint`
+
+Donload FLAME_sample.ply from [Ringnet project](https://github.com/soubhiksanyal/RingNet/tree/master/flame_model).
+- **FLAME_sample.ply**: Place in `./DEEPTalk/models/flame_models`
+- **flame_dynamic_embedding.npy**: Place in `./DEEPTalk/models/flame_models`
+- **flame_static_embedding.pkl**: Place in `./DEEPTalk/models/flame_models`
+
+Download Flame generic_model.pkl from [FLAME website](https://flame.is.tue.mpg.de/).
+- **generic_model.pkl**: Place in `./DEEPTalk/models/flame_models`
+  
 ## Inference
 ```
 cd DEEPTalk
