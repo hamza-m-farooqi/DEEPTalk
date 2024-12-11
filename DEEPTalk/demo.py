@@ -88,8 +88,8 @@ def main(args, config) :
     # model = DEMOTE.DEMOTE(config, FLINT_config, FLINT_ckpt, DEE_model, load_motion_prior=config['motionprior_config']['load_motion_prior']).to(device)
     # model = DEMOTE_VQ.DEMOTE(config, FLINT_config,DEE_config, FLINT_ckpt, DEE_model, load_motion_prior=False)
     model = DEMOTE_VQ.DEMOTE_VQVAE_condition(config, FLINT_config,DEE_config, FLINT_ckpt, DEE_model, load_motion_prior=False)
-    DEMOTE_ckpt_path = args.DEMOTE_ckpt_path
-    DEMOTE_ckpt = torch.load(DEMOTE_ckpt_path, map_location='cpu')
+    DEEPTalk_config_path = args.DEEPTalk_config_path
+    DEMOTE_ckpt = torch.load(DEEPTalk_config_path, map_location='cpu')
     model.load_state_dict(DEMOTE_ckpt)
     ## check params
     state_dict = model.state_dict()
@@ -220,15 +220,16 @@ def main(args, config) :
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--DEMOTE_ckpt_path', type=str,required=True, help='path to EMOTE checkpoint, outputs will be saved in the same directory')
-    parser.add_argument('--DEE_ckpt_path', type=str,required=True, help='path to DEE checkpoint')
+    parser.add_argument('--DEEPTalk_config_path', type=str, default='./checkpoint/DEEPTalk/DEEPTalk.pth', 
+                        help='path to checkpoint, outputs will be saved in the same directory')
+    parser.add_argument('--DEE_ckpt_path', type=str, default='../DEE/checkpoint/DEE.pt', help='path to DEE checkpoint')
     parser.add_argument('--audio_path', type=str,required=True, help='path to target audio')
     parser.add_argument('--use_sampling', action='store_true', help='sample from the emotion space to generate')
     parser.add_argument('--control_logvar', type=float, default=None, help='manually control logvariance of emotional sample space')
     parser.add_argument('--tau', type=float, default=0.0001, help='temperature for sampling')
     args = parser.parse_args()
     
-    DEMOTE_config_path = f'{os.path.dirname(args.DEMOTE_ckpt_path)}/config.json'
+    DEMOTE_config_path = f'{os.path.dirname(args.DEEPTalk_config_path)}/config.json'
     with open(DEMOTE_config_path) as f:
         DEMOTE_config = json.load(f)
         

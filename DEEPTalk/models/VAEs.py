@@ -10,7 +10,7 @@ from .quantizer import VectorQuantizer, EMAVectorQuantizer
 from .base_models import Transformer, PositionEmbedding,\
                                 LinearEmbedding,PositionalEncoding
 
-from models.temporal import TransformerMasking, PositionalEncodings
+from .temporal import TransformerMasking, PositionalEncodings
 
 # Following EMOTE paper,
 # λrec is set to 1000000 and λKL to 0.001, which makes the

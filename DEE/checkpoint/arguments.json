@@ -54,7 +54,7 @@
     "exp_pool": "gpo",
     "audio_pool": "gpo",
     "no_audio_PE": false,
-    "affectnet_model_path": "../FER/checkpoint/best_model.pth",
+    "affectnet_model_path": "../FER/checkpoint/FER.pth",
     "split": "val",
     "num_ckpt": null,
     "last_ckpt": false,
