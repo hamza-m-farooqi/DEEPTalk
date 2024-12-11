@@ -14,7 +14,7 @@ from datasets_ import dataset
 from models import VAEs
 from models.flame_models import flame
 from utils.extra import seed_everything
-from utils.loss_ import calc_vq_flame_L1_loss, calc_vq_flame_L2_loss, calc_vq_vertice_L2_loss, calculate_vertex_velocity_loss, calculate_flame_jaw_loss
+from utils.loss import calc_vq_flame_L1_loss, calc_vq_flame_L2_loss, calc_vq_vertice_L2_loss, calculate_vertex_velocity_loss, calculate_flame_jaw_loss
 from utils.lr_utils import WarmupConstantSchedule
 def train_one_epoch(config, epoch, model, FLAME, optimizer,scheduler, data_loader, device):
     """
@@ -223,8 +223,8 @@ def main(args):
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config', type=str, required=True)
-    parser.add_argument('--model', type=str, default="VQVAE", choices=["VQVAE", "VQVAE2"])
+    parser.add_argument('--config', type=str, default="./checkpoint/TH-VQVAE/config_TH-VQVAE.json")
+    parser.add_argument('--model', type=str, default="VQVAE2", choices=["VQVAE", "VQVAE2"])
     args = parser.parse_args()
     print(args)
     

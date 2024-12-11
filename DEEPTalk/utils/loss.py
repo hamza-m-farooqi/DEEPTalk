@@ -5,6 +5,7 @@ import torch
 import json
 user_name = os.getcwd().split('/')[2]
 sys.path.append(f'../')
+#print current directory
 from DEE.utils.pcme import sample_gaussian_tensors
 # video emotion loss
 # from inferno.models.temporal.Renderers import cut_mouth_vectorized
