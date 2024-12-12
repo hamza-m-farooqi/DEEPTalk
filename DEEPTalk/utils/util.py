@@ -23,19 +23,19 @@ def sample_gaussian_tensors(mu, logsigma, num_samples, normalize):
         return samples
 
 def detect_landmarks(landmarks_detector, images, device) :
-    transform = t.Compose([t.Resize((224,224))])
+    # transform = t.Compose([t.Resize((224,224))])
 
-    if images.shape[3] > 224 :
-        images = transform(images)
-    else :
-        images = images
+    # if images.shape[3] > 224 :
+    #     images = transform(images)
+    # else :
+    #     images = images
     images = images*255.0
     BS,T,C,H,W = images.shape
     images = images.reshape(BS*T,C,H,W)
-
-
+    # images = images.permute(0,2,3,1)
     landmarks = landmarks_detector.get_landmarks_from_batch(images.to(device, dtype=torch.float32))
-    landmarks = np.array(landmarks)
+
+    landmarks_array = np.array(landmarks, dtype=np.float32)      
     landmarks = torch.tensor(landmarks).to(device)
     landmarks = landmarks.reshape(BS,T,68,2)
 

@@ -5,7 +5,6 @@ import math
 from transformers import Wav2Vec2Config, Wav2Vec2Processor, AutoConfig
 from .wav2vec import Wav2Vec2Encoder
 import torch.nn.functional as F
-from .TVAE_inferno import TVAE
 from .temporal.TransformerMasking import init_faceformer_biased_mask_future
 from .base_models import Norm, Residual, Attention
 import os, sys

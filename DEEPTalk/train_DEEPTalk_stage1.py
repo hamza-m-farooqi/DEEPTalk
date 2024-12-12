@@ -6,18 +6,19 @@ import json
 import numpy as np
 import wandb
 import sys
+# os.environ["WANDB__SERVICE_WAIT"] = "300"
 
-
-os.environ["WANDB__SERVICE_WAIT"] = "300"
+wandb.init(settings=wandb.Settings(_service_wait=300))
+sys.path.append("./externals/spectre/external/Visual_Speech_Recognition_for_Multiple_Languages")
 from datasets_.talkingheaddataset import TalkingHeadDataset_new
 from utils.mask import Mask
-from models import TVAE_inferno, DEMOTE, DEMOTE_VQ
+from models import DEMOTE, DEMOTE_VQ
 from models.flame_models import flame
 from utils.extra import seed_everything
 from utils.loss import *
-from utils.our_renderer import get_texture_from_template, render_flame, to_lip_reading_image, render_flame_lip, load_template_mesh, render_flame_nvdiff
+# from utils.our_renderer import get_texture_from_template, render_flame, to_lip_reading_image, render_flame_lip, load_template_mesh, render_flame_nvdiff
 from utils.nvdiff_util import *
-import nvdiffrast.torch as dr
+# import nvdiffrast.torch as dr
 from torchvision import transforms,utils
 import time
 from tqdm import tqdm
@@ -296,8 +297,8 @@ def main(args, config):
     FLAME_val.requires_grad_(False)
 
     print("Loading Dataset...")
-    train_dataset = TalkingHeadDataset_new(config, split='train', process_audio=False)
-    val_dataset = TalkingHeadDataset_new(config, split='val', process_audio=False)
+    train_dataset = TalkingHeadDataset_new(config, split='debug', process_audio=False)
+    val_dataset = TalkingHeadDataset_new(config, split='debug', process_audio=False)
     print('val_dataset', len(val_dataset),'| train_dataset', len(train_dataset))
     
     train_dataloader = torch.utils.data.DataLoader(
@@ -346,27 +347,27 @@ def main(args, config):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--EMOTE_config', type=str, required=True)
+    parser.add_argument('--DEEPTalk_config', type=str, required=True)
     parser.add_argument('--checkpoint', type=str, default=None, help = 'for stage2, we must give a checkpoint!')
-    parser.add_argument('--DEE_checkpoint', type=str, required=True)
-    parser.add_argument('--model_type', type=str, required=True, choices=['DEMOTE', 'DEMOTE_vanila_VQ', 'DEMOTE_VQ','DEMOTE_VQ_condition'])
+    parser.add_argument('--DEE_checkpoint', type=str, default='../DEE/checkpoint/DEE.pt')
+    parser.add_argument('--model_type', type=str, default='DEMOTE_VQ_condition', choices=['DEMOTE', 'DEMOTE_vanila_VQ', 'DEMOTE_VQ','DEMOTE_VQ_condition'])
     args = parser.parse_args()
     print(args)
     
-    with open(args.EMOTE_config) as f:
-        EMOTE_config = json.load(f)
+    with open(args.DEEPTalk_config) as f:
+        DEEPTalk_config = json.load(f)
 
-    wandb.init(project = EMOTE_config["project_name"], # EMOTE
-            name = EMOTE_config["name"], # test
-            config = EMOTE_config) 
+    wandb.init(project = DEEPTalk_config["project_name"], # EMOTE
+            name = DEEPTalk_config["name"], # test
+            config = DEEPTalk_config) 
     
-    save_dir = os.path.join(EMOTE_config["training"]["save_dir"], EMOTE_config["name"])
+    save_dir = os.path.join(DEEPTalk_config["training"]["save_dir"], DEEPTalk_config["name"])
     os.makedirs(save_dir, exist_ok = True)
     
     save_arguments_to_file(save_dir)
     with open(f'{save_dir}/config.json', 'w') as f :
-        json.dump(EMOTE_config, f)
+        json.dump(DEEPTalk_config, f)
     # # for debugging
-    # EMOTE_config["data"]["smooth_expression"] = False
-    main(args, EMOTE_config)
+    # DEEPTalk_config["data"]["smooth_expression"] = False
+    main(args, DEEPTalk_config)
 

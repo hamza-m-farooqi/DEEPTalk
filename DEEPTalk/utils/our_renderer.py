@@ -1,6 +1,6 @@
 import torch
 import os
-os.environ['PYOPENGL_PLATFORM'] =  'osmesa'
+os.environ['PYOPENGL_PLATFORM'] =  'egl'
 from pytorch3d.io import load_objs_as_meshes, load_obj
 from pytorch3d.structures import Meshes
 from pytorch3d.renderer import (
