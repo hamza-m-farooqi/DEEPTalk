@@ -7,14 +7,15 @@ import json
 import numpy as np
 import torch
 import wandb
-os.environ["WANDB__SERVICE_WAIT"] = "600"
-
+# os.environ["WANDB__SERVICE_WAIT"] = "10000"
+wandb.init(settings=wandb.Settings(_service_wait=300))
+sys.path.append("./externals/spectre/external/Visual_Speech_Recognition_for_Multiple_Languages")
 from datasets_ import dataset
 
 from models import VAEs
 from models.flame_models import flame
 from utils.extra import seed_everything
-from utils.loss import calc_vq_flame_L1_loss, calc_vq_flame_L2_loss, calc_vq_vertice_L2_loss, calculate_vertex_velocity_loss, calculate_flame_jaw_loss
+from utils.loss_ import calc_vq_flame_L1_loss, calc_vq_flame_L2_loss, calc_vq_vertice_L2_loss, calculate_vertex_velocity_loss, calculate_flame_jaw_loss
 from utils.lr_utils import WarmupConstantSchedule
 def train_one_epoch(config, epoch, model, FLAME, optimizer,scheduler, data_loader, device):
     """
