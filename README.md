@@ -88,6 +88,7 @@ Download Flame files from [FLAME website](https://flame.is.tue.mpg.de/).
 - **generic_model.pkl**: Place in `./DEEPTalk/models/flame_models`
 
 Download head_template files from [FLAME website](https://flame.is.tue.mpg.de/). (❗This is for Stage2 training)
+- related [issue](https://github.com/whwjdqls/DEEPTalk/issues/3#issuecomment-2547336926)
 - **head_template.jpg**: Place in `./DEEPTalk/models/flame_models/geometry`
 - **head_template.mtl**: Place in `./DEEPTalk/models/flame_models/geometry`
 - **head_template.obj**: Place in `./DEEPTalk/models/flame_models/geometry`
