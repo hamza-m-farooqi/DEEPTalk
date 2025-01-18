@@ -1,6 +1,6 @@
 # DEEPTalk: Dynamic Emotion Embedding for Probabilistic Speech-Driven 3D Face Animation [AAAI2025]
 [![arXiv](https://img.shields.io/badge/arXiv-<2408.06010>-red.svg)](https://arxiv.org/abs/2408.06010)
-[![ProjectPage](https://img.shields.io/badge/ProjectPage-DEEPTalk-<COLOR>.svg)](https://whwjdqls.github.io/deeptalk.github.io/)
+[![ProjectPage](https://img.shields.io/badge/ProjectPage-DEEPTalk-<COLOR>.svg)](https://whwjdqls.github.io/deeptalk_website/)
 
 <p align="center">
   <img src="./demo/teaser_final.png" alt="alt text" width="400">
@@ -51,6 +51,7 @@ Install pytorch3d and other requirements. Refer to this [page](https://github.co
 pip install pytorch3d -f https://dl.fbaipublicfiles.com/pytorch3d/packaging/wheels/py39_cu113_pyt1121/download.html
 pip install -r requirements.txt
 ```
+- installation tip from [this issue](https://github.com/whwjdqls/DEEPTalk/issues/5)
 Install osmesa and ffmpeg for headless rendering and audio, video processing. 
 ```bash
 conda install menpo::osmesa
