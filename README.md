@@ -52,6 +52,7 @@ pip install pytorch3d -f https://dl.fbaipublicfiles.com/pytorch3d/packaging/whee
 pip install -r requirements.txt
 ```
 - installation tip from [this issue](https://github.com/whwjdqls/DEEPTalk/issues/5)
+
 Install osmesa and ffmpeg for headless rendering and audio, video processing. 
 ```bash
 conda install menpo::osmesa
