@@ -113,6 +113,8 @@ Leave an issue if your having troubles processing MEAD. We might be able to prov
 
 
 ## 🏋️ Training
+
+Detailed hyperparameters of our model can be found in the supplementary details in this [link](https://drive.google.com/file/d/1skxpOMsQj84BOWuIa9-R_GjYG2DxwDQu/view?usp=sharing).
 ### 1. Train TH-VQVAE on MEAD FLAME parameters
 Make a copy of `/DEEPTalk/checkpoint/TH-VQVAE/config_TH-VQVAE.json` and change the arguments like `data.data_dir` or `name` to train your own model.
 Then run
