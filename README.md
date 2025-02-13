@@ -81,12 +81,12 @@ Download LRS3_V_WER32.3 model from the [Spectre repository](https://github.com/f
 - Place the LRS3_V_WER32.3 folder at `./DEEPTalk/externals/spectre/data/data/LRS3_V_WER32.3`
 
 ### Download Files
-Donload files from [Ringnet project](https://github.com/soubhiksanyal/RingNet/tree/master/flame_model).
+Download files from [Ringnet project](https://github.com/soubhiksanyal/RingNet/tree/master/flame_model).
 - **FLAME_sample.ply**: Place in `./DEEPTalk/models/flame_models`
 - **flame_dynamic_embedding.npy**: Place in `./DEEPTalk/models/flame_models`
 - **flame_static_embedding.pkl**: Place in `./DEEPTalk/models/flame_models`
 
-Download Flame files from [FLAME website](https://flame.is.tue.mpg.de/).
+Download FLAME 2020 files from [FLAME website](https://flame.is.tue.mpg.de/). 
 - **generic_model.pkl**: Place in `./DEEPTalk/models/flame_models`
 
 Download head_template files from [FLAME website](https://flame.is.tue.mpg.de/). (❗This is for Stage2 training)
