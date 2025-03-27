@@ -1,14 +1,14 @@
 {
     "project_name": "DEEPTalk",
     "name": "stage2",
-    "model_path": "./checkpoint/DEEPTalk",
+    "model_path": "DEEPTalk/checkpoint/DEEPTalk",
     "training": {
         "lr": 0.0001,
         "batch_size": 16,
         "num_epochs": 3,
         "log_step": 10,
         "save_step": 1,
-        "save_dir": "./checkpoint/DEEPTalk",
+        "save_dir": "DEEPTalk/checkpoint/DEEPTalk",
         "tau_schedule": {
             "start": 2,
             "end": 0.1
@@ -21,8 +21,8 @@
             "face_detect": true,
             "E2E": {
                 "model": {
-                    "model_path": "externals/spectre/data/LRS3_V_WER32.3/model.pth",
-                    "model_conf": "externals/spectre/data/LRS3_V_WER32.3/model.json"
+                    "model_path": "DEEPTalk/externals/spectre/data/LRS3_V_WER32.3/model.pth",
+                    "model_conf": "DEEPTalk/externals/spectre/data/LRS3_V_WER32.3/model.json"
                 }
             }
         },
@@ -42,7 +42,7 @@
         },
         "vertex_lip_loss": {
             "use": false,
-            "mask_path": "./models/flame_models/FLAME_masks.pkl"
+            "mask_path": "DEEPTalk/models/flame_models/FLAME_masks.pkl"
         },
         "vertex_velocity_loss": {
             "use": false
@@ -53,8 +53,8 @@
     },
     "data": {
         "dataset": "MEAD",
-        "audio_dir": "./audio_sample",
-        "expression_dir": "./flame_param",
+        "audio_dir": "DEEPTalk/audio_sample",
+        "expression_dir": "DEEPTalk/flame_param",
         "random_slice": true,
         "full_length": false,
         "window_size": 1.28,
@@ -70,13 +70,13 @@
         "shape_params": 100,
         "expression_params": 50,
         "use_3D_translation": true,
-        "static_landmark_embedding_path": "models/flame_models/flame_static_embedding.pkl",
-        "dynamic_landmark_embedding_path": "models/flame_models/flame_dynamic_embedding.npy",
-        "flame_model_path": "models/flame_models/generic_model.pkl"
+        "static_landmark_embedding_path": "DEEPTalk/models/flame_models/flame_static_embedding.pkl",
+        "dynamic_landmark_embedding_path": "DEEPTalk/models/flame_models/flame_dynamic_embedding.npy",
+        "flame_model_path": "DEEPTalk/models/flame_models/generic_model.pkl"
     },
     "motionprior_config": {
-        "config_path": "./checkpoint/TH-VQVAE/config_TH-VQVAE.json",
-        "checkpoint_path": "./checkpoint/TH-VQVAE/TH-VQVAE.pth",
+        "config_path": "DEEPTalk/checkpoint/TH-VQVAE/config_TH-VQVAE.json",
+        "checkpoint_path": "DEEPTalk/checkpoint/TH-VQVAE/TH-VQVAE.pth",
         "load_motion_prior": true
     },
     "audio_config": {

@@ -85,9 +85,9 @@ class ProbAudioEncoder(nn.Module):
         self.unfreeze_emo2vec = args.unfreeze_emo2vec
         self.unfreeze_block_layer = args.unfreeze_block_layer
         if not self.input_embeddings: # if input audio
-            model_dir = '../DEE/models/emo2vec'
+            model_dir = 'DEE/models/emo2vec'
             model_path = UserDirModule(model_dir)
-            emo2vec_checkpoint = '../DEE/models/emo2vec/emotion2vec_base.pt'
+            emo2vec_checkpoint = 'DEE/models/emo2vec/emotion2vec_base.pt'
             fairseq.utils.import_user_module(model_path)
             model, cfg, task = fairseq.checkpoint_utils.load_model_ensemble_and_task([emo2vec_checkpoint])
             self.embedding_model = model[0]

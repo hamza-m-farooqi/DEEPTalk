@@ -86,3 +86,6 @@ yacs==0.1.8
 yapf==0.40.2
 transformers==4.24.0
 funasr==1.1.16
+
+python-multipart
+fastapi[all]
